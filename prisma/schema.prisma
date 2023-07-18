@@ -48,7 +48,6 @@ model Account {
 model Word {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
-  wordId String @db.ObjectId  
   word String
   Traduction String
   Lang String

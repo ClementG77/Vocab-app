@@ -9,6 +9,7 @@ import ToasterProvider from '@/app/providers/ToasterProvider';
 import './globals.css'
 import ClientOnly from './components/ClientOnly';
 import getCurrentUser from './actions/getCurrentUser';
+import AddwordModal from './components/modals/AddwordModal';
 
 export const metadata = {
   title: 'Vocab Test',
@@ -31,6 +32,7 @@ export default async function RootLayout({
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
+          <AddwordModal />
           <LoginModal />
           <RegisterModal />
           <Navbar currentUser={currentUser} />

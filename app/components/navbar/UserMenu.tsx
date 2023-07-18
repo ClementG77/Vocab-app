@@ -11,6 +11,7 @@ import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import useAddwordModal from "@/app/hooks/useAddwordModal";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null
@@ -23,6 +24,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+  const addwordModal = useAddwordModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,11 +32,19 @@ const UserMenu: React.FC<UserMenuProps> = ({
     setIsOpen((value) => !value);
   }, []);
 
+  const onAddword = useCallback(()=> {
+    if (!currentUser) {
+        return loginModal.onOpen();
+    }
+
+    addwordModal.onOpen();
+},[addwordModal, currentUser, loginModal])
+
   return ( 
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div 
-          onClick={() => {}}
+          onClick={onAddword}
           className="
             hidden
             md:block
@@ -111,7 +121,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
               <>
                 <MenuItem 
                   label="Add a word" 
-                  onClick={() => router.push('/')}
+                  onClick={addwordModal.onOpen}
                 />
                 <MenuItem 
                   label="Test my vocab" 

@@ -12,6 +12,7 @@ import Input from '../inputs/Input';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import getWord from '@/app/actions/getWordByWord';
 
 
 enum STEPS {
@@ -71,8 +72,9 @@ const AddwordModal = () => {
           return onNext();
         }
         
+        
         setIsLoading(true);
-    
+  
         axios.post('/api/addwords', data)
         .then(() => {
           toast.success('Word succesfuly added to your list!');

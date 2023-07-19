@@ -3,15 +3,17 @@ import prisma from "@/app/libs/prismadb";
 export interface IwordsParams {
   userId?: string;
   Lang?: string;
+  word?: string;
 }
 
-export default async function getAllwords(
+export default async function getWord(
   params: IwordsParams
 ) {
   try {
     const {
       userId,
       Lang, 
+      word,
     } = params;
 
     let query: any = {};
@@ -23,21 +25,17 @@ export default async function getAllwords(
     if (Lang) {
       query.lang = Lang;
     }
-
-
-    const words = await prisma.word.findMany({
-      where: query,
-      orderBy: {
-        createdAt: 'desc'
+    if (word) {
+        query.word = word;
       }
+
+
+    const words = await prisma.word.findUnique({
+      where: query,
     });
 
-    const safewords = words.map((word) => ({
-      ...word,
-      createdAt: word.createdAt.toISOString(),
-    }));
 
-    return safewords;
+    return words;
   } catch (error: any) {
     throw new Error(error);
   }

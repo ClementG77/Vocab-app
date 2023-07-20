@@ -3,7 +3,7 @@
 import useAddwordModal from '@/app/hooks/useAddwordModal';
 import Modal from './Modal'
 import { useMemo, useState } from 'react';
-import { categories } from '../navbar/Categories';
+import { Langs } from '../navbar/Categories';
 import  useCountries from "@/app/hooks/useCountries";
 import Heading from '../Heading';
 import CategoryInput from '../inputs/CategoryInput';
@@ -123,7 +123,7 @@ const AddwordModal = () => {
               overflow-y-auto
             "
           >
-            {categories.map((item) => (
+            {Langs.map((item) => (
               <div key={item.label} className="col-span-1">
                 <CategoryInput
                 onClick={(category) => { setCustomValue('Lang', category); setCustomValue('LANG', category);}}

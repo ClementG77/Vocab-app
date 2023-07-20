@@ -17,7 +17,6 @@ interface HomeProps {
 const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
   const words = await getAllwords(searchParams);
-  {console.log(words)}
 
   if (words.length === 0) {
     return (

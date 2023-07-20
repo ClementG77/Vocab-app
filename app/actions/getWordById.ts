@@ -21,7 +21,7 @@ export default async function getAllwords(
     }
 
     if (Lang) {
-      query.lang = Lang;
+      query.Lang = Lang;
     }
 
 

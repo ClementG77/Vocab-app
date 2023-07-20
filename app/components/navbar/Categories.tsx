@@ -8,7 +8,7 @@ import  useCountries from "@/app/hooks/useCountries";
 
 
 
-export const categories = [
+export const Langs = [
     {
         label: 'English',
         icon: 'United Kingdom',
@@ -44,7 +44,7 @@ export const categories = [
 
 const Categories = () => {
     const params = useSearchParams();
-    const category = params?.get('category');
+    const Lang = params?.get('Lang');
     const pathname = usePathname();
     const { getByName } = useCountries();
 
@@ -60,11 +60,11 @@ const Categories = () => {
                 justify-between
                 overflow-x-auto
             ">
-                {categories.map((item)=>(
+                {Langs.map((item)=>(
                     <CategoryBox 
                         key={item.label}
                         label={item.label}
-                        selected={category == item.label}
+                        selected={Lang == item.label}
                         icon={(getByName(item.icon)?.flag)?.toString()}
                     />
                 ))}

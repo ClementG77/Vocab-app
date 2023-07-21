@@ -84,7 +84,7 @@ const AddwordModal = () => {
           addwordModal.onClose();
         })
         .catch(() => {
-          toast.error('Something went wrong.');
+          toast.error('You already have this word in your list');
         })
         .finally(() => {
           setIsLoading(false);

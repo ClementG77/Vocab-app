@@ -1,39 +1,32 @@
 import prisma from "@/app/libs/prismadb";
 
 export interface IwordsParams {
-  userId?: string;
-  Lang?: string;
   word?: string;
+  userId?: string
 }
 
 export default async function getWord(
   params: IwordsParams
 ) {
   try {
-    const {
-      userId,
-      Lang, 
-      word,
-    } = params;
+    const { word, userId } = params;
 
-    let query: any = {};
+    const query: any = {};
+        
+    if (word) {
+      query.word = word;
+    };
 
     if (userId) {
       query.userId = userId;
-    }
-
-    if (Lang) {
-      query.lang = Lang;
-    }
-    if (word) {
-        query.word = word;
-      }
-
-
-    const words = await prisma.word.findUnique({
-      where: query,
+    };
+    const words = await prisma.word.findMany({
+      where: {word : query.word ,userId: query.userId},
     });
 
+    if (!words) {
+      return null;
+    }
 
     return words;
   } catch (error: any) {

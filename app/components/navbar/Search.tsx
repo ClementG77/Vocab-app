@@ -9,14 +9,14 @@ const Search = () => {
       onClick={()=>{}}
       className="
         border-[1px] 
-        w-full 
-        md:w-auto 
+        w-80
         py-2 
         rounded-full 
         shadow-sm 
         hover:shadow-md 
         transition 
         cursor-pointer
+        relative
       "
     >
       <div 
@@ -43,9 +43,11 @@ const Search = () => {
           <div 
             className="
               p-2 
-              bg-rose-500 
+              bg-blue-500 
               rounded-full 
               text-white
+              absolute
+              right-0
             "
           >
             <BiSearch size={18} />

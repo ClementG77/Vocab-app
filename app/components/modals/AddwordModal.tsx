@@ -142,7 +142,7 @@ const AddwordModal = () => {
           <div className="flex flex-col gap-8">
             <Heading
               title="Enter your word"
-              subtitle="fdsf"
+              subtitle=""
             />
             <Input
               id="word"
@@ -161,7 +161,7 @@ const AddwordModal = () => {
           <div className="flex flex-col gap-8">
             <Heading
               title="Enter your Traduction"
-              subtitle="gfdgfdgfd"
+              subtitle=""
             />
             <Input
               id="Traduction"

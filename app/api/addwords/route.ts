@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getWord from "@/app/actions/getWordByWord";
-import { toast } from "react-hot-toast";
 
 export async function POST(
   request: Request, 
@@ -29,19 +28,13 @@ export async function POST(
   });
   
   //Verify If the word is already existing
-  const oldword = await getWord({ userId: currentUser.id,word: body.word });
-  let wordTest = false;
-  const test = await oldword?.map((item)=>{
-    if (item.word === body.word) {
-      wordTest = true;
-    }
-  })
+  const oldword = await getWord({ userId: currentUser.id,word: body.word, Lang: body.Lang });
 
-  if (wordTest) {
+  if (oldword?.word === body.word) {
     return NextResponse.error();
   }
 
-  const listing = await prisma.word.create({
+  const Word = await prisma.word.create({
     data: {
         word,
         Lang,
@@ -50,5 +43,5 @@ export async function POST(
     }
   });
 
-  return NextResponse.json(listing);
+  return NextResponse.json(Word);
 }

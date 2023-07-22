@@ -6,6 +6,8 @@ import getAllwords, {
 } from "@/app/actions/getWordById";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
+import Quizz from "./components/quizz/Quizz";
+import { SafeWord } from "./types";
 
 export const dynamic = 'force-dynamic'
 
@@ -17,11 +19,26 @@ interface HomeProps {
 const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
   const words = await getAllwords(searchParams);
+  const rand = (Math.floor(Math.random() * words.length));
+
+
 
   if (words.length === 0) {
     return (
       <ClientOnly>
-        <EmptyState showReset />
+        <EmptyState 
+        title="No exact matches"
+        subtitle="Try changing or removing some of your filters."
+        showReset />
+      </ClientOnly>
+    );
+  }
+  if (searchParams.Lang === undefined) {
+    return (
+      <ClientOnly>
+        <EmptyState 
+        title="Please pick a language above"
+         />
       </ClientOnly>
     );
   }
@@ -31,22 +48,19 @@ const Home = async ({ searchParams }: HomeProps) => {
       <Container>
         <div 
           className="
-            pt-24
-            grid 
-            grid-cols-1 
-            sm:grid-cols-2 
-            md:grid-cols-3 
-            lg:grid-cols-4
-            xl:grid-cols-5
-            2xl:grid-cols-6
-            gap-8
+          pt-24
+          flex  
+          items-center
+          justify-center
+          gap-8 
           "
         >
-          {words.map((word: any) => ( 
-            <Container
-            key={word.id}>
-            </Container>
-          ))}
+            <Quizz
+            currentUser={currentUser}
+            key={1}
+            testWord={words[rand].word}
+            correctTraduction={words[rand].Traduction}/>
+
         </div>
       </Container>
     </ClientOnly>

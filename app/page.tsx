@@ -28,7 +28,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       <ClientOnly>
         <EmptyState 
         title="No exact matches"
-        subtitle="Try changing or removing some of your filters."
+        subtitle=""
         showReset />
       </ClientOnly>
     );

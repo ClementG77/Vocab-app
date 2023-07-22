@@ -1,14 +1,14 @@
 'use client';
 
-import { SafeUser, SafeWord } from "@/app/types";
+import { SafeUser } from "@/app/types";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import Button from "../Button";
-import { useState } from "react";
+import {VscError} from 'react-icons/vsc'
+import error_icon from '@/public/images/error_icon.svg';
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { test } from "node:test";
 
 interface QuizzProps {
     testWord: string;
@@ -51,7 +51,27 @@ const Quizz: React.FC<QuizzProps> = ({
             router.refresh();
             return console.log("Correct")     
         }
-        toast.error(`The correct traduction of ` +  testWord + ` was ` + correctTraduction )
+        toast.custom(<div className="
+        w-auto
+        h-auto
+        flex
+        flex-row
+        align-center
+        justify-center
+        h-18
+        p-2
+        rounded-md
+        bg-neutral-200
+        "><div className="
+        align-items">
+            <VscError size={30}
+                    color="red" />
+            </div>
+            <div className="align-items">
+            The correct traduction of  <span className="font-bold">{testWord}</span>  was  <span className="font-bold">{correctTraduction}</span>
+            </div>
+        </div>,{duration:2000});
+        //toast.error(`The correct traduction of ` +  JSON.stringify(<span className="font-bold">{testWord}</span>) + ` was ` + correctTraduction )
         router.refresh();
         console.log('Hello')
     

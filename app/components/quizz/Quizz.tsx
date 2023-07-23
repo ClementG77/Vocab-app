@@ -49,7 +49,7 @@ const Quizz: React.FC<QuizzProps> = ({
         if (correctTraduction === data.Traduction) {
             toast.success("Correct")
             router.refresh();
-            return console.log("Correct")     
+            return  
         }
         toast.custom(<div className="
         w-auto
@@ -73,7 +73,6 @@ const Quizz: React.FC<QuizzProps> = ({
         </div>,{duration:2000});
         //toast.error(`The correct traduction of ` +  JSON.stringify(<span className="font-bold">{testWord}</span>) + ` was ` + correctTraduction )
         router.refresh();
-        console.log('Hello')
     
     }
 

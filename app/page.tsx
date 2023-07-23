@@ -22,6 +22,16 @@ const Home = async ({ searchParams }: HomeProps) => {
   const rand = (Math.floor(Math.random() * words.length));
 
 
+  if (currentUser === null) {
+    return (
+      <ClientOnly>
+        <EmptyState 
+        title="You are not connected "
+        subtitle="Please login to see your list"
+         />
+      </ClientOnly>
+    );
+  }
 
   if (words.length === 0) {
     return (
@@ -33,6 +43,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       </ClientOnly>
     );
   }
+
   if (searchParams.Lang === undefined) {
     return (
       <ClientOnly>

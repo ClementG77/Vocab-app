@@ -47,7 +47,8 @@ const Quizz: React.FC<QuizzProps> = ({
       const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         //const retreiveWord = getWord({ userId: currentUser?.id,word: correctWord });
         if (correctTraduction === data.Traduction) {
-            toast.success("Correct")
+            toast.success("Correct");
+            (document.getElementById('Traduction') as HTMLInputElement).value ="";
             router.refresh();
             return  
         }
@@ -72,6 +73,7 @@ const Quizz: React.FC<QuizzProps> = ({
             </div>
         </div>,{duration:2000});
         //toast.error(`The correct traduction of ` +  JSON.stringify(<span className="font-bold">{testWord}</span>) + ` was ` + correctTraduction )
+        (document.getElementById('Traduction') as HTMLInputElement).value ="";
         router.refresh();
     
     }

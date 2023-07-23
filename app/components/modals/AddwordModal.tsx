@@ -91,6 +91,16 @@ const AddwordModal = () => {
         })
       }
 
+      const checkWord = () =>{
+        let word = (document.getElementById('word') as HTMLInputElement)?.value
+        axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, )
+        .then(() => {
+        })
+        .catch(() => {
+          toast.error(`This word doesn't exist`);
+          onBack();
+        })
+      }
       
 
     const actionLabel = useMemo(()=> {
@@ -157,6 +167,7 @@ const AddwordModal = () => {
       }
 
       if (step === STEPS.TRADUCTION) {
+        checkWord();
         bodyContent = (
           <div className="flex flex-col gap-8">
             <Heading

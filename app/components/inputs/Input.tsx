@@ -51,7 +51,7 @@ const Input: React.FC<InputProps> = ({
         {...register(id, { required })}
         placeholder=" "
         type={type}
-        onFocus={(e) => resetInput(e)}
+        onFocus={()=>{}}
         className={`
           peer
           w-full

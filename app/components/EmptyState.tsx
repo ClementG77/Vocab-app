@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import Button from "./Button";
 import Heading from "./Heading";
-import useLoginModal from "@/app/hooks/useLoginModal";
+import useAddwordModal from "../hooks/useAddwordModal";
 
 interface EmptyStateProps {
   title: string;
@@ -18,7 +18,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   showReset
 }) => {
   const router = useRouter();
-  const loginModal = useLoginModal();
+  const addwordsmodal = useAddwordModal();
 
   return ( 
     <div 
@@ -41,7 +41,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           <Button
             outline
             label="Add some words to your list"
-            onClick={() => {router.push('/');router.refresh()}}
+            onClick={addwordsmodal.onOpen}
           />
         )}
       </div>

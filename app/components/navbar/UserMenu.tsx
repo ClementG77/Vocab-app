@@ -75,7 +75,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             cursor-pointer
           "
         >
-          Test my vocab
+          View my vocab
         </div>
         <div 
         onClick={toggleOpen}
@@ -124,7 +124,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   onClick={addwordModal.onOpen}
                 />
                 <MenuItem 
-                  label="Test my vocab" 
+                  label="View my vocab" 
                   onClick={() => router.push('/')}
                 />
                 <hr />

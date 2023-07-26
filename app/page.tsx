@@ -7,7 +7,6 @@ import getAllwords, {
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 import Quizz from "./components/quizz/Quizz";
-import { SafeWord } from "./types";
 
 export const dynamic = 'force-dynamic'
 
@@ -18,7 +17,8 @@ interface HomeProps {
 
 const Home = async ({ searchParams }: HomeProps) => {
   const currentUser = await getCurrentUser();
-  const words = await getAllwords(searchParams);
+  const words = await getAllwords(searchParams, currentUser);
+
   const rand = (Math.floor(Math.random() * words.length));
 
 

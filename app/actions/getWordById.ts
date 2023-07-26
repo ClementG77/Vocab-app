@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import { SafeUser } from "../types";
 
 export interface IwordsParams {
   userId?: string;
@@ -6,7 +7,8 @@ export interface IwordsParams {
 }
 
 export default async function getAllwords(
-  params: IwordsParams
+  params: IwordsParams,
+  userParams : SafeUser | null
 ) {
   try {
     const {
@@ -16,8 +18,8 @@ export default async function getAllwords(
 
     let query: any = {};
 
-    if (userId) {
-      query.userId = userId;
+    if (userParams) {
+      query.userId = userParams.id;
     }
 
     if (Lang) {

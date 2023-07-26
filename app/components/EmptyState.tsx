@@ -37,18 +37,13 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         subtitle={subtitle}
       />
       <div className="w-48 mt-4">
-        {showReset ? (
+      {showReset && (
           <Button
             outline
             label="Add some words to your list"
             onClick={() => {router.push('/');router.refresh()}}
           />
-        ):
-        <Button
-            outline
-            label="Connect here"
-            onClick={() => loginModal.onOpen()}
-          />}
+        )}
       </div>
     </div>
    );

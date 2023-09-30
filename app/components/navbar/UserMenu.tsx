@@ -60,23 +60,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         >
           Add a word
         </div>
-        <div 
-          onClick={() => {}}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
-        >
-          View my vocab
-        </div>
+
         <div 
         onClick={toggleOpen}
         className="
@@ -122,10 +106,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 <MenuItem 
                   label="Add a word" 
                   onClick={addwordModal.onOpen}
-                />
-                <MenuItem 
-                  label="View my vocab" 
-                  onClick={() => router.push('/')}
                 />
                 <hr />
                 <MenuItem 

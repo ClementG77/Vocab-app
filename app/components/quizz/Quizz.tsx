@@ -92,7 +92,8 @@ const Quizz: React.FC<QuizzProps> = ({
             p-6
             w-80
             h-80
-            bg-neutral-100
+            bg-neutral
+            border-solid border border-blue-500
             rounded-md
             ">
                 <Heading

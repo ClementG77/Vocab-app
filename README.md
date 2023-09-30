@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>Vocab App</h1> 
 
-## Getting Started
+<h2>About the project</h2>
 
-First, run the development server:
+  <p><b>Vocab app</b> is a web appliaction created to improve your vocab on a foreign language. You can go on the site register yourself and start to add some words on your private database, after that the website will retrieve randomly the words that you stored and you'll have to give the correct translation. A toast will appear to tell you if you are right or if you are wrong it will show the correct translation</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 Live Demo : [https://vocab-app-seven.vercel.app/](https://vocab-app-seven.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<h3>Build with:</h3>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+» NextJS  <br>
+» Tailwind CSS <br>
+» Prisma <br>
+» MongoDB
 
-## Learn More
+<h2>Screenshots of the Project 📸</h2>
+<br>
+<h3 align='center'>Home Page 🏡</h3>
 
-To learn more about Next.js, take a look at the following resources:
+<div align='center'>
+<img src='https://github.com/ClementG77/Vocab-app/assets/73953821/016552c8-0d7e-4c66-880a-36ded4a09a62'/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+</div>
+<br>
+<h3 align='center'>Add a word to your list 🏡</h3>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<div align='center'>
+<img src='https://github.com/ClementG77/Vocab-app/assets/73953821/c3e1e2b5-1bc7-497b-a856-29142fa295b3'/>
 
-## Deploy on Vercel
+</div>
+<br>
+<h3 align='center'>Test your vocabulary 🏡</h3>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div align='center'>
+<img src='https://github.com/ClementG77/Vocab-app/assets/73953821/6ea56273-736d-4a66-b6ce-691e88d6aa10'/>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</div>

@@ -46,7 +46,7 @@ const Quizz: React.FC<QuizzProps> = ({
       });
       const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         //const retreiveWord = getWord({ userId: currentUser?.id,word: correctWord });
-        if (correctTraduction === data.Traduction) {
+        if (correctTraduction === data.Traduction.toLowerCase()) {
             toast.success("Correct");
             (document.getElementById('Traduction') as HTMLInputElement).value ="";
             router.refresh();

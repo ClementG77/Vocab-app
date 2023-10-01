@@ -71,6 +71,8 @@ const AddwordModal = () => {
         if (step !== STEPS.TRADUCTION) {
           return onNext();
         }
+        data = {Lang:data.Lang,Traduction: data.Traduction.toLowerCase(),word:data.word.toLowerCase()}
+        console.log(data)
         
         
         setIsLoading(true);
